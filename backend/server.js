@@ -7,12 +7,16 @@ import { v2 as cloudinary } from "cloudinary";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import path from "path";
+import { fileURLToPath } from "url";
 
 //local imports
 import connectDB from "./config/database.js";
 import authRoute from "./routes/authRoute.js";
 import productRoute from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //rest object
 const app = express();
