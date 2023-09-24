@@ -57,7 +57,10 @@ app.use("/api/v1/product", productRoute);
 app.use("/api/v1/user", userRoute);
 
 app.use("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+    const indexPath = path.join(__dirname, "../client/dist/index.html");
+    console.log("Requested Path: ", req.path);
+    console.log("Serving Index Path: ", indexPath);
+    res.sendFile(indexPath);
 });
 
 app.listen(PORT, () => {
