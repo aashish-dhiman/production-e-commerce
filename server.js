@@ -44,7 +44,7 @@ app.use(
 // use body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use(express.static(path.join(__dirname, "./client/dist")));
 //connect DB
 connectDB();
 
@@ -57,7 +57,7 @@ app.use("/api/v1/product", productRoute);
 app.use("/api/v1/user", userRoute);
 
 app.use("*", function (req, res) {
-    const indexPath = path.join(__dirname, "../client/dist/index.html");
+    const indexPath = path.join(__dirname, "./client/dist/index.html");
     console.log("Requested Path: ", req.path);
     console.log("Serving Index Path: ", indexPath);
     res.sendFile(indexPath);
